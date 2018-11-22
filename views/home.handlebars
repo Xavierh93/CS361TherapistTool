@@ -1,1 +1,55 @@
-<h1>Welcome to the home page of <em>the Therapist Search Tool</em></h1>
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset='UTF-8' />
+  <title>CS 340 Final Project</title>
+  {{> styles}}
+</head>
+
+<body id="homeBody">
+
+  {{> navbar}}
+
+  <div class="container">
+    <div class="jumbotron" id="mainStatement">
+      <h1 class="display-4">The Perfect Therapist Finder</h1>
+      <p class="lead">Help is only a few clicks away</p>
+      <hr class="my-4">
+      <p>Our mission is to give patients the ability to easily search for and find the therapist best suited for their
+        personal needs.</p>
+      <div class="text-center">
+        <a class="btn btn-primary btn-lg" href="#" role="button">Sign-up</a>
+      </div>
+    </div>
+
+    <form action="/people/people_search">
+      Search Location:
+      <input name="locationSearch" placeholder="Enter Zip Code" type="Search">
+      <input type="submit">
+    </form>
+
+    <div id="map"></div>
+  </div>
+  <script>
+    // Initialize and add the map
+    function initMap() {
+      // The location of Uluru
+      var uluru = { lat: 28.5383, lng: 81.3792 };
+      // The map, centered at Orlando
+      var map = new google.maps.Map(
+        document.getElementById('map'), { zoom: 4, center: orlando });
+      // The marker, positioned at Uluru
+      var marker = new google.maps.Marker({ position: orlando, map: map });
+    }
+  </script>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyCPePyarzDJPz0cCeqUhCfT9Ad2Dl17oDo
+&callback=initMap">
+</script>
+
+
+  {{> footer}}
+
+</body>
+</html>
