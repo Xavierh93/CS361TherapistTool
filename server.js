@@ -1,15 +1,15 @@
 var express = require('express');
+var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
+app.use(express.static(path.join(__dirname, '/public')));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
-app.set('port', 7170);
-
-
+app.set('port', 54320);
 
 app.get('/', function(req, res)
 {
@@ -23,7 +23,7 @@ app.get('/', function(req, res)
   //Call type declared
   content.callType = 'GET';
   //Post.handlebars served
-  res.render('get', content);
+  res.render('home', content);
 });
 
 //If user requests via POST items are sent to body
@@ -42,6 +42,21 @@ app.post('/', function(req, res)
   content.Qdata = keyQ;
   res.render('post', content);
 })
+
+app.get('/search', function(req,res)
+{
+  res.render('search');
+});
+
+app.get('/login', function(req,res)
+{
+  res.render('login');
+});
+
+app.get('/register', function(req,res)
+{
+  res.render('register');
+});
 
 //404 error
 app.use(function(req, res){
