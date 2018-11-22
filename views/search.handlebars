@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+  <meta charset='UTF-8' />
+  <title>CS 340 Final Project</title>
+  {{> styles}}
+</head>
+
+<body>
+
+  {{> navbar}}
+
+  <div class="container">
+    <form action="/people/people_search">
+      Search Therapy/Therapist:
+      <input name="therapistSearch" placeholder="Search" type="Search">
+      <input type="submit">
+    </form>
+  </div>
+
+  {{> footer}}
+
+</body>
+</html>
