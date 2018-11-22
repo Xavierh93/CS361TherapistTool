@@ -1,0 +1,64 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+      #map {
+        height: 400px;
+        width: 100%;
+       }
+    </style>
+  <meta charset = 'UTF-8'/>
+  <title>CS 340 Final Project</title>
+
+  <link href = "public/styles.css" type = "text/css" rel = "stylesheet"/>
+</head>
+
+<body>
+  <div id='navbar' align='center'>
+    <a href='./index.html'>Home</a>
+    <a href='./search.html'>Search</a>
+    <a href='./login.html'>Login</a>
+    <a href='./register.html'>Register</a>
+  </div>
+
+<h1>Therapist Search Tool</h1>
+  <div class='box1'>
+    <p></p>
+    <br>
+    
+    <form action="/people/people_search">
+      Search Location:
+      <input name="locationSearch" placeholder="Enter Zip Code" type="Search">
+      <input type="submit">
+    </form>
+
+    <div id="map"></div>
+    <script>
+// Initialize and add the map
+function initMap() {
+  // The location of Uluru
+  var uluru = {lat: 28.5383, lng: 81.3792};
+  // The map, centered at Orlando
+  var map = new google.maps.Map(
+      document.getElementById('map'), {zoom: 4, center: orlando});
+  // The marker, positioned at Uluru
+  var marker = new google.maps.Marker({position: orlando, map: map});
+}
+    </script>
+    <script async defer
+    src="https://maps.googleapis.com/maps/api/js?key=
+AIzaSyCPePyarzDJPz0cCeqUhCfT9Ad2Dl17oDo
+&callback=initMap">
+    </script>
+
+
+    <div id='footer'>
+    </footer>
+      <section class = 'contact-details'>
+        <h2>Contact</h2>
+        <p>
+        </p>
+      </footer>
+    </div>
+  </body>
+  </html>
