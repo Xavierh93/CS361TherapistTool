@@ -3,6 +3,7 @@ var path = require('path');
 var bodyParser = require('body-parser');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
+var mysql = require('./dbcon.js');
 
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
@@ -10,6 +11,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 54320);
+app.set('mysql', mysql);
 
 app.get('/', function(req, res)
 {
@@ -57,6 +59,8 @@ app.get('/register', function(req,res)
 {
   res.render('register');
 });
+
+app.use('/', require('./routes/zipSearch.js'));
 
 //404 error
 app.use(function(req, res){
