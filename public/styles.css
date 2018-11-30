@@ -70,8 +70,3 @@ hr.style-two {
   color: red;
   cursor: pointer;
 }
-
-/* Search page */
-tfoot tr th {
-  border-top: 10px solid black;
-}
