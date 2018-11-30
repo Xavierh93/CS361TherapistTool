@@ -14,10 +14,11 @@
         <th scope="col">First Name</th> 
         <th scope="col">Last Name</th> 
         <th scope="col">Specialty</th>
-        <th scope="col">Years Practicing</th>
+        <th scope="col">Sexual Orientation</th>
+        <th scope="col">Religion</th>
+        <th scope="col">Experience</th>
         <th scope="col">Location</th>
         <th scope="col">Email</th>
-        <th scope="col"></th>
     </thead> 
     <tbody> 
         {{#each therapist}} 
@@ -25,10 +26,11 @@
             <td>{{fname}}</td> 
             <td>{{lname}}</td> 
             <td>{{spec}}</td> 
+            <td>{{sOrien}}</td> 
+            <td>{{rel}}</td> 
             <td>{{exp}}</td> 
             <td>{{loc}}</td> 
             <td>{{mail}}</td> 
-            <td><a href="/search/{{therID}}">More Info</a></td>
         </tr> 
         {{/each}} 
     </tbody> 

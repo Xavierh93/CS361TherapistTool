@@ -1,9 +1,17 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-	<title>Main Page of Therapist Tool</title>
+	{{#each jsscripts}}
+	<script src="/static/{{this}}"></script>
+	{{/each}}
+	{{> styles}}
 </head>
+
 <body>
+	{{> navbar}}
 	{{{body}}}
+	{{> footer}}
 </body>
+
 </html>
