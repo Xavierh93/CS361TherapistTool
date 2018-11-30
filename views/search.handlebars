@@ -4,36 +4,52 @@
 <head>
   <meta charset='UTF-8' />
   <title>CS 340 Final Project</title>
+
 </head>
 
 <body>
 
   <div class="container">
-    <table class="table table-striped table-sm">
-    <thead class="thead-dark"> 
-        <th scope="col">First Name</th> 
-        <th scope="col">Last Name</th> 
-        <th scope="col">Specialty</th>
-        <th scope="col">Years Practicing</th>
-        <th scope="col">Location</th>
-        <th scope="col">Email</th>
-        <th scope="col"></th>
-    </thead> 
-    <tbody> 
-        {{#each therapist}} 
+    <table id="therapistTable" class="table table-striped table-sm">
+      <thead>
+        <tr>
+          <th scope="col">First Name</th>
+          <th scope="col">Last Name</th>
+          <th scope="col">Specialty</th>
+          <th scope="col">Years Practicing</th>
+          <th scope="col">Location</th>
+          <th scope="col">Email</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each therapist}}
         <tr scope="row">
-            <td>{{fname}}</td> 
-            <td>{{lname}}</td> 
-            <td>{{spec}}</td> 
-            <td>{{exp}}</td> 
-            <td>{{loc}}</td> 
-            <td>{{mail}}</td> 
-            <td><a href="/search/{{therID}}">More Info</a></td>
-        </tr> 
-        {{/each}} 
-    </tbody> 
-</table> 
+          <td>{{fname}}</td>
+          <td>{{lname}}</td>
+          <td>{{spec}}</td>
+          <td>{{exp}}</td>
+          <td>{{loc}}</td>
+          <td>{{mail}}</td>
+          <td><a href="/search/{{therID}}">More Info</a></td>
+        </tr>
+        {{/each}}
+      </tbody>
+      <tfoot>
+        <tr scope="row">
+          <hr class="style-two">
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Specialty</th>
+          <th>Years Practicing</th>
+          <th>Location</th>
+          <th>Email</th>
+          <th></th>
+        </tr>
+      </tfoot>
+    </table>
   </div>
-
+  <script src="/filter.js"></script>
 </body>
+
 </html>
