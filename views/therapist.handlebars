@@ -21,18 +21,16 @@
         <th scope="col">Email</th>
     </thead> 
     <tbody> 
-        {{#each therapist}} 
         <tr scope="row">
-            <td>{{fname}}</td> 
-            <td>{{lname}}</td> 
-            <td>{{spec}}</td> 
-            <td>{{sOrien}}</td> 
-            <td>{{rel}}</td> 
-            <td>{{exp}}</td> 
-            <td>{{loc}}</td> 
-            <td>{{mail}}</td> 
+            <td>{{therapist.fname}}</td> 
+            <td>{{therapist.lname}}</td> 
+            <td>{{therapist.spec}}</td> 
+            <td>{{therapist.sOrien}}</td> 
+            <td>{{therapist.rel}}</td> 
+            <td>{{therapist.exp}}</td> 
+            <td>{{therapist.loc}}</td> 
+            <td>{{therapist.mail}}</td> 
         </tr> 
-        {{/each}} 
     </tbody> 
 </table> 
   </div>
