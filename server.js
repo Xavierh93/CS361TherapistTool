@@ -1,5 +1,6 @@
 var express = require('express');
 var path = require('path');
+var mysql = require('./dbcon.js');
 var bodyParser = require('body-parser');
 var app = express();
 var handlebars = require('express-handlebars').create({defaultLayout: 'main'});
@@ -8,10 +9,13 @@ var mysql = require('./dbcon.js');
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '/public')));
+app.use('/static', express.static('public'));
+app.use('/search', require('./therapist.js'));
 app.engine('handlebars', handlebars.engine);
 app.set('view engine', 'handlebars');
 app.set('port', 54320);
 app.set('mysql', mysql);
+
 
 app.get('/', function(req, res)
 {
@@ -45,11 +49,6 @@ app.post('/', function(req, res)
   res.render('post', content);
 })
 
-app.get('/search', function(req,res)
-{
-  res.render('search');
-});
-
 app.get('/login', function(req,res)
 {
   res.render('login');
@@ -75,6 +74,6 @@ app.use(function(err, req, res, next){
 	res.render("500");
 });
 
-app.listen(app.get("port"), function(){
-	console.log("Express started on port 7170");
+app.listen(app.get('port'), function(){
+  console.log('Express started on http://flip3.engr.oregonstate.edu:' + app.get('port') + '; press Ctrl-C to terminate.');
 });
